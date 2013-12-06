@@ -13,6 +13,14 @@ class Estoque
 			p livro.to_csv 
 		end
 	end
+	def quantidade_de_vendas_titulo(produto)
+		@vendas.count {|venda| venda.titulo == produto.titulo}		
+	end
+
+	def livro_que_mais_vendeu_por_titulo(produto)
+		@vendas.sort{|v1,v2| quantidade_de_vendas_titulo(v1) <=> quantidade_de_vendas_titulo(v2)}.last
+	end
+
 
 	def mais_baratos_que(valor)
 		@livros.select do |livro|
@@ -30,7 +38,7 @@ class Estoque
         @livros << livro if livro
     end
 
-    def remove(livro)
+    def vendas(livro)
     	@vendas << livro
         @livros.delete(livro)
 
