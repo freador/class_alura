@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<h3> <%= job_title @job %>
+ </h3>
+
+<p><%= @job.description %></p>
+<p><%= pluralize(@job.comments.size, 'Comments') %></p>
+		<%= link_to 'Edit', edit_job_path(@job) %> |
+		<%= link_to 'Back', jobs_path %>
+
+<br>
+
+<p>Send a comment</p>
+
+<%= render 'comments/form' %>
+
+<p>Comments</p>
+
+<%= render @job.comments %>
+
+
