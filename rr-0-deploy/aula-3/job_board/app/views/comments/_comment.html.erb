@@ -1,3 +1,8 @@
 <p><%= comment.name %>said:</p>
 <p><%= simple_format comment.body %></p>
+<<<<<<< HEAD
 <p>Sent: <%= time_ago_in_words comment.created_at %></p>
+=======
+<p>Sent: <%= time_ago_in_words comment.created_at %></p>
+<p> <%= link_to "Destroy", comment_path(comment), method: :delete, confirm: "Are you sure?" %></p>
+>>>>>>> 4abd5ebc19491971e992174ee96bab52ee7eb0d3

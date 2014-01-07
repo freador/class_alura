@@ -1,5 +1,12 @@
 JobBoard::Application.routes.draw do
+<<<<<<< HEAD
   resources :jobs
+=======
+  resources :jobs do
+    post 'comments', to: 'comments#create'
+  end
+  delete 'comment/:id', to: 'comments#destroy',as: :comment
+>>>>>>> 4abd5ebc19491971e992174ee96bab52ee7eb0d3
   root to: 'jobs#premium'
 
   get "hello/world"
