@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_filter :authorize_company, only: [:new,:create]
+  before_filter :authorize_company, only: [:new,:create, :edit, :update,:destroy]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
@@ -15,7 +15,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = current_company.jobs.build
   end
 
   def premium
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.new(job_params)
+    @job = current_company.jobs.build(job_params)
 
     respond_to do |format|
       if @job.save
