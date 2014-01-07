@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107175322) do
+ActiveRecord::Schema.define(version: 20140107183512) do
 
   create_table "comments", force: true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140107175322) do
     t.datetime "updated_at"
     t.boolean  "premium"
     t.integer  "company_id"
+    t.integer  "comments_count", default: 0
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id"

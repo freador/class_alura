@@ -10,7 +10,7 @@ class LoginController < ApplicationController
 			redirect_to root_path
 		else
 			flash.now[:alert] = 'Emal ou senha invalida'
-			endrender action: "new"
+			render action: "new"
 		end
 	end
 
